@@ -64,10 +64,10 @@ def get_carla_cmap():
     12: [220, 220, 0]
   }
 
-  carla_color_dict = {k: [x / 255 for x in v] for k, v in color_dict.items()}
+  carla_color_dict = {k: [x / 255 for x in v] for k, v in carla_color_dict.items()}
 
   carla_cmap = mpl.colors.ListedColormap(carla_color_dict.values())
   carla_bounds = tuple(carla_color_dict.keys()) + (13,)
-  carla_norm = mpl.colors.BoundaryNorm(carla_bounds, carla_bounds.N)
+  carla_norm = mpl.colors.BoundaryNorm(carla_bounds, carla_cmap.N)
 
   return carla_cmap, carla_norm
